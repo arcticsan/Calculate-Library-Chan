@@ -18,6 +18,8 @@ public class DoMath {
 		System.out.println(Calculate.max(3,1,2));
 		System.out.println(Calculate.max(1,2,3));
 		System.out.println(Calculate.max(1,3,2));
+		System.out.println("\n" + (Calculate.round2(3.1445)) + "\n");
+		System.out.println("\n" + (Calculate.round2(3.1455)) + "\n");
 		System.out.println(Calculate.exponent(3,4));
 		System.out.println(Calculate.factorial(5));
 		System.out.println(Calculate.isPrime(7));

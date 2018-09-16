@@ -89,9 +89,15 @@ public class Calculate {
 	}
 	
 	//rounds a double correctly to 2 decimal places
-	//public static double round2(double number) {
-		//return ();
-	
+	public static double round2(double number) {
+		number = number * 1000;
+		double lastdigit = number % 10;
+		if (lastdigit >= 5){
+			number = number + 10;
+		}
+		number = number - number % 10;
+		return (number * .001);
+	}
 	//returns a value to a positive integer power
 	public static double exponent(double value, int power) {
 		double result = value; //result variable for final output
