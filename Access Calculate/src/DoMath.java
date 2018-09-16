@@ -18,5 +18,16 @@ public class DoMath {
 		System.out.println(Calculate.max(3,1,2));
 		System.out.println(Calculate.max(1,2,3));
 		System.out.println(Calculate.max(1,3,2));
+		System.out.println(Calculate.exponent(3,4));
+		System.out.println(Calculate.factorial(5));
+		System.out.println(Calculate.isPrime(7));
+		System.out.println(Calculate.isPrime(144));
+		System.out.println();
+		System.out.println(Calculate.gcf(5,5));
+		System.out.println(Calculate.gcf(10,5));
+		System.out.println(Calculate.gcf(20,24));
+		System.out.println(Calculate.gcf(98,56));
+		
+		
 	}
 }
