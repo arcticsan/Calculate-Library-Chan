@@ -148,7 +148,7 @@ public class Calculate {
 				int possiblegcf = lownum;
 				test = (Calculate.isDivisibleBy(highnum,possiblegcf));
 				
-				//while loop to find gcf
+				//while loop to test factor of lownum with highnum
 				while (test == false) {	
 					boolean factortest = false;	//factorTest for for loop condition
 					
