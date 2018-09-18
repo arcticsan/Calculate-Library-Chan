@@ -167,7 +167,7 @@ public class Calculate {
 	public static double sqrt(double number) {
 		double guess = 2;
 		int count = 0;
-		while (count <= 50) {
+		while (count <= 50) { //50 guesses are overkill but ensures accuracy 
 			guess = 0.5 * ((number/guess) + guess); //Newton's Square Root Equation
 			count++;
 		}
