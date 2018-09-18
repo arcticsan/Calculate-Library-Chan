@@ -163,4 +163,14 @@ public class Calculate {
 			}
 		}
 	}
+	//Returns square root of values passed
+	public static double sqrt(double number) {
+		double guess = 2;
+		int count = 0;
+		while (count <= 50) {
+			guess = 0.5 * ((number/guess) + guess); //Newton's Square Root Equation
+			count++;
+		}
+		return (Calculate.round2(guess));
+	}
 }
