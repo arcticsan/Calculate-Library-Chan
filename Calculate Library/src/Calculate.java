@@ -120,7 +120,10 @@ public class Calculate {
 		boolean test2 = (Calculate.isDivisibleBy(number,3));
 		//boolean result;
 		//test for divisibility
-		if (test1 == true || test2 == true) { //divisibility is a condition for non-prime numbers
+		if (number == 2 || number == 3) {
+			return(true);
+		}
+		else if (test1 != false || test2 != false) { //divisibility is a condition for non-prime numbers
 			return (false);		  			  //therefore the return needs to be opposite of isDivisibleBy output
 		}
 		else return (true);

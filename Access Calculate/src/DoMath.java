@@ -39,7 +39,11 @@ public class DoMath {
 		System.out.println("\nPart 3");
 		System.out.println(Calculate.exponent(3,4));
 		System.out.println(Calculate.factorial(5));
+		System.out.println(Calculate.isPrime(2));
 		System.out.println(Calculate.isPrime(7));
+		System.out.println(Calculate.isPrime(9));
+		System.out.println(Calculate.isPrime(10));
+		System.out.println(Calculate.isPrime(17));
 		System.out.println(Calculate.isPrime(144));
 		System.out.println(Calculate.gcf(5,5));
 		System.out.println(Calculate.gcf(10,5));
