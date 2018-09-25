@@ -72,10 +72,10 @@ public class Calculate {
 	}
 	//returns the greatest number of three passed numbers
 	public static double max(double number1, double number2, double number3) {
-		if (number1 > number2 && number1 > number3) {
+		if (number1 >= number2 && number1 >= number3) {
 			return (number1);
 		}
-		else if (number2 > number1 && number2 > number3) {
+		else if (number2 >= number1 && number2 >= number3) {
 			return (number2);
 		}
 		else return (number3);
@@ -90,12 +90,20 @@ public class Calculate {
 	
 	//rounds a double correctly to 2 decimal places
 	public static double round2(double number) {
+		boolean negative = false;
+		if (number < 0) {
+			number = Calculate.absValue(number);
+			negative = true; 
+		}
 		number = number * 1000;
 		double lastdigit = number % 10;
 		if (lastdigit >= 5){
 			number = number + 10;
 		}
 		number = number - number % 10;
+		if (negative == true) {
+			number = number * -1;
+		}
 		return (number * .001);
 	}
 	//returns a value to a positive integer power
