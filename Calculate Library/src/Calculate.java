@@ -210,8 +210,8 @@ public class Calculate {
 			return (root + "");
 		}
 		else { // discriminant > 0
-			double root1 = ((-1 * b + (Calculate.sqrt(discriminant)) / (2 * a)));
-			double root2 = ((-1 * b - (Calculate.sqrt(discriminant)) / (2 * a)));
+			double root1 = ((-1 * b + (Calculate.sqrt(discriminant))) / (2 * a));
+			double root2 = ((-1 * b - (Calculate.sqrt(discriminant))) / (2 * a));
 			root1 = (Calculate.round2(root1));
 			root2 = (Calculate.round2(root2));
 			return (root1 + " and " + root2);
