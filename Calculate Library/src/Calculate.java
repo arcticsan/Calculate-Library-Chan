@@ -49,6 +49,9 @@ public class Calculate {
 	}
 	//determines whether integer is evenly divisible by another
 	public static boolean isDivisibleBy(int number1, int number2) {
+		if (number2 == 0) {
+			throw new IllegalArgumentException ("Sorry, numbers cannot be divided by 0. Please enter a positive integer.");
+		}
 		boolean test = number1 % number2 == 0;
 		return test;
 	}
@@ -108,6 +111,9 @@ public class Calculate {
 	}
 	//returns a value to a positive integer power
 	public static double exponent(double value, int power) {
+		if (power < 0) {
+			throw new IllegalArgumentException ("Sorry, this method does not accept negative powers. Please enter a positive power.");
+		}
 		double result = value; //result variable for final output
 		for (int count = 0; count < power - 1; count++) { //value is used as a multiple
 			result = result * value;
@@ -116,6 +122,9 @@ public class Calculate {
 	}
 	//returns the factorial of the value passed
 	public static int factorial(int number) {
+		if (number < 0) {
+			throw new IllegalArgumentException ("Sorry, this method does not accept negative integers. Please enter a positive integer.");
+		}
 		int result = number;
 		for (int count = 1; count < number; count++){
 			result = result * (number - count);
@@ -138,7 +147,9 @@ public class Calculate {
 	}
 	//returns the greatest common factor of two integers
 	public static int gcf(int number1, int number2) {
-		
+		number1 = (int) (Calculate.absValue(number1));
+		number2 = (int) (Calculate.absValue(number2));
+				
 		//when numbers are each others gcf
 		if (number1/number2 == 1 && number1 % number2 == 0) {
 			return (number1);
@@ -176,6 +187,9 @@ public class Calculate {
 	}
 	//Returns square root of values passed
 	public static double sqrt(double number) {
+		if (number < 0) {
+			throw new IllegalArgumentException ("Sorry, you cannot take the square root of a negative value. Please enter a positive value");
+		}
 		double guess = 2;
 		int count = 0;
 		while (count <= 50) { //50 guesses are overkill but ensures accuracy 
@@ -183,5 +197,24 @@ public class Calculate {
 			count++;
 		}
 		return (Calculate.round2(guess));
+	}
+	//Returns the real roots of a quadratic equation
+	public static String quadForm(double a, double b, double c) {
+		double discriminant = (Calculate.discriminant(a, b, c));
+		if (discriminant < 0) {
+			return ("no real roots");
+		}
+		else if (discriminant == 0) {
+			double root = (-b/(2 * a));
+			root = (Calculate.round2(root));
+			return (root + "");
+		}
+		else { // discriminant > 0
+			double root1 = ((-1 * b + (Calculate.sqrt(discriminant)) / (2 * a)));
+			double root2 = ((-1 * b - (Calculate.sqrt(discriminant)) / (2 * a)));
+			root1 = (Calculate.round2(root1));
+			root2 = (Calculate.round2(root2));
+			return (root1 + " and " + root2);
+		}
 	}
 }
