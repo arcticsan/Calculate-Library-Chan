@@ -67,6 +67,7 @@ public class DoMath {
 		System.out.println("\nPart 4");
 		System.out.println(Calculate.quadForm(3, 2, 4));
 		System.out.println(Calculate.quadForm(2, 4, 2));
-		System.out.println(Calculate.quadForm(3, 5, 2));		
+		System.out.println(Calculate.quadForm(3, 5, 2));
+		System.out.println(Calculate.quadForm(3, 5, -2));
 	}
 }
