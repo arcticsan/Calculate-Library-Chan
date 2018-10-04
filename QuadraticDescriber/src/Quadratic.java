@@ -4,7 +4,7 @@
  */
 public class Quadratic {
 	//returns square of integer
-		public static int square(int number) {
+		public static double square(double number) {
 			return number * number;
 		}
 		//returns cube of integer
@@ -208,17 +208,47 @@ public class Quadratic {
 				return (root + "");
 			}
 			else { // discriminant > 0
-				double root1 = ((-1 * b + (Quadratic.sqrt(discriminant))) / (2 * a));
-				double root2 = ((-1 * b - (Quadratic.sqrt(discriminant))) / (2 * a));
-				root1 = (Quadratic.round2(root1));
-				root2 = (Quadratic.round2(root2));
-				return (root1 + " and " + root2);
+				double root1_x = ((-1 * b + (Quadratic.sqrt(discriminant))) / (2 * a));
+				double root2_x = ((-1 * b - (Quadratic.sqrt(discriminant))) / (2 * a));
+				root1_x = (Quadratic.round2(root1_x));
+				root2_x = (Quadratic.round2(root2_x));
+				return (root1_x + " and " + root2_x);
 			}
 		}
 		//Returns description of a quadratic equation
 		public static String quadrDescriber (double a, double b, double c) {
-			//double vertex_x;
-			return ("");
+			// Direction of graph
+			if (a <= 0) {
+				System.out.println("Graph opens down");
+			}
+			else if (a >= 0) {
+				System.out.println("Graph opens up");
+			}
+			else {	// when a = 0
+				System.out.println("Equation is linear");
+			}
+			// Vertex of graph
+			double vertex_x = (-b/(2*a));
+			double vertex_y = (Quadratic.round2((a * Quadratic.square(vertex_x) + b * vertex_x + c)));
+			System.out.println("Vertex is (" + Quadratic.round2(vertex_x) + "," + vertex_y + ")");
+			// X-intercepts
+			double discriminant = (Quadratic.discriminant(a, b, c));
+			if (discriminant < 0) {
+				System.out.println("No x-intercepts");
+			}
+			else if (discriminant == 0) {
+				double root_x = (-b/(2 * a));
+				System.out.println("X-intercept is (" + Quadratic.round2(root_x) + ",0)");
+			}
+			else { // discriminant > 0
+				double root1_x = ((-1 * b + (Quadratic.sqrt(discriminant))) / (2 * a));
+				double root2_x = ((-1 * b - (Quadratic.sqrt(discriminant))) / (2 * a));
+				root1_x = (Quadratic.round2(root1_x));
+				root2_x = (Quadratic.round2(root2_x));
+				System.out.println("X-intercepts are (" + root1_x + ",0) and (" + root2_x + ",0)");
+			}
+			// Y-intercepts
+			return ("Y-intercept is (0," + c + ")");
 		}
 		
 }
