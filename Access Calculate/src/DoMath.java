@@ -38,6 +38,7 @@ public class DoMath {
 		System.out.println(Calculate.round2(3.1445));
 		System.out.println(Calculate.round2(3.1455));
 		System.out.println(Calculate.round2(-1234.57500));
+		System.out.println(Calculate.round2(5.5600000000000005));
 		
 		//Part 3
 		System.out.println("\nPart 3");

@@ -107,7 +107,7 @@ public class Calculate {
 		if (negative == true) {
 			number = number * -1;
 		}
-		return (number * .001);
+		return (number/1000);
 	}
 	//returns a value to a positive integer power
 	public static double exponent(double value, int power) {
