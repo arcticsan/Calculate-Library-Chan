@@ -9,17 +9,25 @@ public class QuadraticClient {
 	
 	public static void main (String[] args) {
 		System.out.println("Welcome to the Quadratic Describer");
-		Scanner userInput = new Scanner(System.in);
-		System.out.println("Please enter coefficents of a standard quadratic equation:");
-		double a = userInput.nextDouble();
-		double b = userInput.nextDouble();
-		double c = userInput.nextDouble();
-		userInput.close();
-		String continue_
+		System.out.println("Provide values for coefficients a, b, and c\n");
+		boolean stop_run;
 		do {
-			System.out.println(Quadratic.quadrDescriber(a, b, c));
+			Scanner userInput = new Scanner(System.in);
+			System.out.print("a: ");
+			double a = userInput.nextDouble();
+			System.out.print("b: ");
+			double b = userInput.nextDouble();
+			System.out.print("c: ");
+			double c = userInput.nextDouble();
+			System.out.println("");
+			Quadratic.quadrDescriber(a, b, c);
+			//System.out.println(Quadratic.quadrDescriber(a, b, c));
+			System.out.println("\nDo you want to keep going? (Type \"quit\" to end)");
+			String quit = userInput.next();
+			stop_run = quit.contentEquals("quit");
+			System.out.println("");
 		}
-		while (continue != "quit");*/
-	}
+		while (stop_run != true);
+		}
 }
 	//System.out.println(Quadratic.round2(-5.5600000000000005));

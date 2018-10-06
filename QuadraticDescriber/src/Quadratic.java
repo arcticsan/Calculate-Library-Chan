@@ -218,19 +218,12 @@ public class Quadratic {
 		//Returns description of a quadratic equation
 		public static String quadrDescriber (double a, double b, double c) {
 			// Printing Equation
-			String ax = (a + "x^2");
-			String bx = (b + "x");
-			String k = (c + "");  
-			if (b == 0) {
-				bx = ("");
-			}
-			if (c == 0) {
-				k = ("");
-			}
-			System.out.println("Description of the graph of:\n " + ax + bx + k +"\n");
+			String ax = (a + " x^2");
+			String bx = (b + " x");
+			System.out.println("Description of the graph of:\ny = " + ax + " + " + bx + " + " + c +"\n");
 			
 			// Direction of graph
-			System.out.print("Open: ");
+			System.out.print("Opens: ");
 			if (a < 0) {
 				System.out.println("Down");
 			}
@@ -242,10 +235,13 @@ public class Quadratic {
 			}
 
 			// Axis of Symmetry and Vertex of graph
-			double vertex_x = (-b/(2*a));
+			double vertex_x = ((b*-1)/(2*a));
+			if (vertex_x == -0.0) {
+				vertex_x = vertex_x * -1;
+			}
 			System.out.println("Axis of Symmetry: " + vertex_x);
 			double vertex_y = (Quadratic.round2((a * Quadratic.square(vertex_x) + b * vertex_x + c)));
-			System.out.println("Vertex: (" + vertex_x + "," + vertex_y + ")");
+			System.out.println("Vertex: (" + vertex_x + ", " + vertex_y + ")");
 			
 			// X-intercepts
 			double discriminant = (Quadratic.discriminant(a, b, c));
@@ -255,18 +251,18 @@ public class Quadratic {
 			}
 			else if (discriminant == 0) {
 				double root_x = (-b/(2 * a));
-				System.out.println("(" + Quadratic.round2(root_x) + ",0)");
+				System.out.println(Quadratic.round2(root_x));
 			}
 			else { // discriminant > 0
 				double root1_x = ((-1 * b + (Quadratic.sqrt(discriminant))) / (2 * a));
 				double root2_x = ((-1 * b - (Quadratic.sqrt(discriminant))) / (2 * a));
 				root1_x = (Quadratic.round2(root1_x));
 				root2_x = (Quadratic.round2(root2_x));
-				System.out.println("(" + root1_x + ",0) and (" + root2_x + ",0)");
+				System.out.println(root1_x + " and " + root2_x);
 			}
 			// Y-intercepts
-			System.out.print("y-intercept: " );
-			return ("(0," + c + ")");
+			System.out.println("y-intercept: " + c);
+			return ("");
 		}
 		
 }
