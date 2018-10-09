@@ -133,14 +133,14 @@ public class Calculate {
 	}
 	//determines if integer is a prime number
 	public static boolean isPrime(int number) {
-		boolean test1 = (Calculate.isDivisibleBy(number,2));
-		boolean test2 = (Calculate.isDivisibleBy(number,3));
+		boolean divisibleby2 = (Calculate.isDivisibleBy(number,2));
+		boolean divisibleby3 = (Calculate.isDivisibleBy(number,3));
 		//boolean result;
 		//test for divisibility
 		if (number == 2 || number == 3) {
 			return(true);
 		}
-		else if (test1 != false || test2 != false) { //divisibility is a condition for non-prime numbers
+		else if (divisibleby2 != false || divisibleby3 != false) { //divisibility is a condition for non-prime numbers
 			return (false);		  			  //therefore the return needs to be opposite of isDivisibleBy output
 		}
 		else return (true);
@@ -150,39 +150,26 @@ public class Calculate {
 		number1 = (int) (Calculate.absValue(number1));
 		number2 = (int) (Calculate.absValue(number2));
 				
-		//when numbers are each others gcf
+		//numbers are each others gcf
 		if (number1/number2 == 1 && number1 % number2 == 0) {
 			return (number1);
 		}
 		
-		//when numbers are not each others gcf
+		//numbers are not each others gcf
 		else {
 			int lownum = (Calculate.min(number1, number2));
 			int highnum = (int) (Calculate.max(number1, number2));
-			boolean test = (Calculate.isDivisibleBy(highnum,lownum));
-			
-			//when lower number is the gcf
-			if (test == true) {
-				return (lownum);
-			}
-			//when you have to find compatible factor
-			else {
-				int possiblegcf = lownum;
-				test = (Calculate.isDivisibleBy(highnum,possiblegcf));
-				
-				//while loop to test factor of lownum with highnum
-				while (test == false) {	
-					boolean factortest = false;	//factorTest for for loop condition
-					
-					//Loop to find factor of lownum
-					while (factortest == false) { 
-						possiblegcf = possiblegcf - 1;					
-						factortest = (Calculate.isDivisibleBy(lownum,possiblegcf));
-					}
-					test = (Calculate.isDivisibleBy(highnum,possiblegcf)); 
+			int possiblegcf = lownum;
+			boolean factortest = (Calculate.isDivisibleBy(highnum,possiblegcf));
+			while (factortest != true) {
+				possiblegcf = possiblegcf--;
+				boolean factorofhighnum = (Calculate.isDivisibleBy(highnum,possiblegcf));
+				boolean factoroflownum = (Calculate.isDivisibleBy(lownum, possiblegcf));
+				if ( factorofhighnum == false ||  factoroflownum == false) {
+					factortest = false;
 				}
-				return (possiblegcf);
 			}
+			return(possiblegcf);
 		}
 	}
 	//Returns square root of values passed
@@ -218,3 +205,41 @@ public class Calculate {
 		}
 	}
 }
+/*public static int gcf(int number1, int number2) {
+number1 = (int) (Calculate.absValue(number1));
+number2 = (int) (Calculate.absValue(number2));
+		
+//numbers are each others gcf
+if (number1/number2 == 1 && number1 % number2 == 0) {
+	return (number1);
+}
+
+//numbers are not each others gcf
+else {
+	int lownum = (Calculate.min(number1, number2));
+	int highnum = (int) (Calculate.max(number1, number2));
+	boolean divisibility = (Calculate.isDivisibleBy(highnum,lownum));
+	
+	//lower number is the gcf
+	if (divisibility == true) {
+		return (lownum);
+	}
+	//lownum is not gcf
+	else {
+		int possiblegcf = lownum;
+		
+		//while loop to find gcf compatible factor of lownum and highnum
+		while (divisibility == false) {	
+			boolean factortest = false;	//factorTest for for loop condition
+			
+			//Loop to find gcf factor of lownum
+			while (factortest == false) { 
+				possiblegcf = possiblegcf - 1;					
+				factortest = (Calculate.isDivisibleBy(lownum,possiblegcf));
+			}
+			divisibility = (Calculate.isDivisibleBy(highnum,possiblegcf)); 
+		}
+		return (possiblegcf);
+	}
+}
+}*/
