@@ -239,9 +239,9 @@ public class Quadratic {
 			if (vertex_x == -0.0) {
 				vertex_x = vertex_x * -1;
 			}
-			System.out.println("Axis of Symmetry: " + vertex_x);
+			System.out.println("Axis of Symmetry: " + Quadratic.round2(vertex_x));
 			double vertex_y = (Quadratic.round2((a * Quadratic.square(vertex_x) + b * vertex_x + c)));
-			System.out.println("Vertex: (" + vertex_x + ", " + vertex_y + ")");
+			System.out.println("Vertex: (" + Quadratic.round2(vertex_x) + ", " + vertex_y + ")");
 			
 			// X-intercepts
 			double discriminant = (Quadratic.discriminant(a, b, c));

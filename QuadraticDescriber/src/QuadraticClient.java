@@ -23,11 +23,10 @@ public class QuadraticClient {
 			Quadratic.quadrDescriber(a, b, c);
 			//System.out.println(Quadratic.quadrDescriber(a, b, c));
 			System.out.println("\nDo you want to keep going? (Type \"quit\" to end)");
-			String quit = userInput.next();
+			String quit = userInput.next().toLowerCase();
 			stop_run = quit.contentEquals("quit");
 			System.out.println("");
 		}
 		while (stop_run != true);
 		}
 }
-	//System.out.println(Quadratic.round2(-5.5600000000000005));
