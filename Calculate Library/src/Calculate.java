@@ -149,28 +149,19 @@ public class Calculate {
 	public static int gcf(int number1, int number2) {
 		number1 = (int) (Calculate.absValue(number1));
 		number2 = (int) (Calculate.absValue(number2));
-				
-		//numbers are each others gcf
-		if (number1/number2 == 1 && number1 % number2 == 0) {
-			return (number1);
-		}
 		
-		//numbers are not each others gcf
-		else {
-			int lownum = (Calculate.min(number1, number2));
-			int highnum = (int) (Calculate.max(number1, number2));
-			int possiblegcf = lownum;
-			boolean factortest = (Calculate.isDivisibleBy(highnum,possiblegcf));
-			while (factortest != true) {
-				possiblegcf = possiblegcf--;
-				boolean factorofhighnum = (Calculate.isDivisibleBy(highnum,possiblegcf));
-				boolean factoroflownum = (Calculate.isDivisibleBy(lownum, possiblegcf));
-				if ( factorofhighnum == false ||  factoroflownum == false) {
-					factortest = false;
-				}
-			}
-			return(possiblegcf);
+		if (number1 == 0 || number2 == 0) {
+			throw new IllegalArgumentException ("Sorry, there is no gcf for zero. Please enter a positive integer.");
 		}
+		int lownum = (Calculate.min(number1,number2));
+		int highnum = (int) (Calculate.max(number1,number2));
+		int gcfcanidate = lownum;
+		boolean gcftest = (Calculate.isDivisibleBy(highnum,gcfcanidate));
+		while (gcftest == false) {
+			gcfcanidate--;
+			gcftest = (Calculate.isDivisibleBy(highnum, gcfcanidate) && (Calculate.isDivisibleBy(lownum, gcfcanidate)));
+		}
+		return (gcfcanidate);
 	}
 	//Returns square root of values passed
 	public static double sqrt(double number) {
@@ -205,7 +196,8 @@ public class Calculate {
 		}
 	}
 }
-/*public static int gcf(int number1, int number2) {
+/* OLD VERSION OF gcf
+public static int gcf(int number1, int number2) {
 number1 = (int) (Calculate.absValue(number1));
 number2 = (int) (Calculate.absValue(number2));
 		

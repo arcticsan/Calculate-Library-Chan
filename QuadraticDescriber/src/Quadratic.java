@@ -147,41 +147,19 @@ public class Quadratic {
 		public static int gcf(int number1, int number2) {
 			number1 = (int) (Quadratic.absValue(number1));
 			number2 = (int) (Quadratic.absValue(number2));
-					
-			//when numbers are each others gcf
-			if (number1/number2 == 1 && number1 % number2 == 0) {
-				return (number1);
-			}
 			
-			//when numbers are not each others gcf
-			else {
-				int lownum = (Quadratic.min(number1, number2));
-				int highnum = (int) (Quadratic.max(number1, number2));
-				boolean test = (Quadratic.isDivisibleBy(highnum,lownum));
-				
-				//when lower number is the gcf
-				if (test == true) {
-					return (lownum);
-				}
-				//when you have to find compatible factor
-				else {
-					int possiblegcf = lownum;
-					test = (Quadratic.isDivisibleBy(highnum,possiblegcf));
-					
-					//while loop to test factor of lownum with highnum
-					while (test == false) {	
-						boolean factortest = false;	//factorTest for for loop condition
-						
-						//Loop to find factor of lownum
-						while (factortest == false) { 
-							possiblegcf = possiblegcf - 1;					
-							factortest = (Quadratic.isDivisibleBy(lownum,possiblegcf));
-						}
-						test = (Quadratic.isDivisibleBy(highnum,possiblegcf)); 
-					}
-					return (possiblegcf);
-				}
+			if (number1 == 0 || number2 == 0) {
+				throw new IllegalArgumentException ("Sorry, there is no gcf for zero. Please enter a positive integer.");
 			}
+			int lownum = (Quadratic.min(number1,number2));
+			int highnum = (int) (Quadratic.max(number1,number2));
+			int gcfcanidate = lownum;
+			boolean gcftest = (Quadratic.isDivisibleBy(highnum,gcfcanidate));
+			while (gcftest == false) {
+				gcfcanidate--;
+				gcftest = (Quadratic.isDivisibleBy(highnum, gcfcanidate) && (Quadratic.isDivisibleBy(lownum, gcfcanidate)));
+			}
+			return (gcfcanidate);
 		}
 		//Returns square root of values passed
 		public static double sqrt(double number) {
