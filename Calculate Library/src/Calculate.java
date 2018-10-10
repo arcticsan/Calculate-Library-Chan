@@ -135,8 +135,6 @@ public class Calculate {
 	public static boolean isPrime(int number) {
 		boolean divisibleby2 = (Calculate.isDivisibleBy(number,2));
 		boolean divisibleby3 = (Calculate.isDivisibleBy(number,3));
-		//boolean result;
-		//test for divisibility
 		if (number == 2 || number == 3) {
 			return(true);
 		}
@@ -156,10 +154,10 @@ public class Calculate {
 		int lownum = (Calculate.min(number1,number2));
 		int highnum = (int) (Calculate.max(number1,number2));
 		int gcfcanidate = lownum;
-		boolean gcftest = (Calculate.isDivisibleBy(highnum,gcfcanidate));
-		while (gcftest == false) {
+		boolean factortest = (Calculate.isDivisibleBy(highnum,gcfcanidate));
+		while (factortest == false) {
 			gcfcanidate--;
-			gcftest = (Calculate.isDivisibleBy(highnum, gcfcanidate) && (Calculate.isDivisibleBy(lownum, gcfcanidate)));
+			factortest = (Calculate.isDivisibleBy(highnum, gcfcanidate) && (Calculate.isDivisibleBy(lownum, gcfcanidate)));
 		}
 		return (gcfcanidate);
 	}
