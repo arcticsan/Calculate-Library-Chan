@@ -46,11 +46,15 @@ public class DoMath {
 		System.out.println(Calculate.exponent(3,0));
 		System.out.println(Calculate.factorial(5));
 		System.out.println(Calculate.isPrime(2));
+		System.out.println(Calculate.isPrime(5));
 		System.out.println(Calculate.isPrime(7));
 		System.out.println(Calculate.isPrime(9));
 		System.out.println(Calculate.isPrime(10));
 		System.out.println(Calculate.isPrime(17));
+		System.out.println(Calculate.isPrime(19));
+		System.out.println(Calculate.isPrime(35));
 		System.out.println(Calculate.isPrime(144));
+		System.out.println(Calculate.isPrime(17 * 17));
 		System.out.println(Calculate.gcf(5,5));
 		System.out.println(Calculate.gcf(10,5));
 		System.out.println(Calculate.gcf(20,24));
