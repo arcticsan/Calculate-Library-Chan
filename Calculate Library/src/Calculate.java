@@ -133,34 +133,13 @@ public class Calculate {
 	}
 	//determines if integer is a prime number
 	public static boolean isPrime(int number) {
-		if (number == 2 || number == 3 || number == 5 || number == 7) return (true);	
-		//int instancesofdivisibility = 0;
-		if (isDivisibleBy(number,2) == true) return (false);
-		for (int i = 3; i <= 7; i += 2) {
-			if (isDivisibleBy(number,i) == true) return(false);
-		}
-		return (true);	
-		
-		/*int instancesofdivisibility = 0;
-		for (int i = 1; i < 10; i++) {
-			if (isDivisibleBy(number,i)) {
-				instancesofdivisibility++;
+		for (int i = 2; i < number; i++) {
+			if ((isDivisibleBy(number,i)) == true) {
+				return false;
 			}
 		}
-		if (instancesofdivisibility == 0) return (false);
-		else return (true);*/
-		/*
-		boolean divisibleby2 = (Calculate.isDivisibleBy(number,2));
-		boolean divisibleby3 = (Calculate.isDivisibleBy(number,3));
-		boolean divisibleby5 = (Calculate.isDivisiblyBy(number,5));
-		if (number == 2 || number == 3) {
-			return(true);
-		}
-		else if (divisibleby2 != false || divisibleby3 != false) { //divisibility is a condition for non-prime numbers
-			return (false);		  			  //therefore the return needs to be opposite of isDivisibleBy output
-		}*/
-		
-	}
+		return true;
+	}	
 	//returns the greatest common factor of two integers
 	public static int gcf(int number1, int number2) {
 		number1 = (int) (Calculate.absValue(number1));
