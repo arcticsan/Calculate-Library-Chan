@@ -84,7 +84,7 @@ public class Calculate {
 		else return (number3);
 	}
 	//returns the smaller number passed
-	public static int min(int number1, int number2) {
+	public static double min(double number1, double number2) {
 		if (number1 < number2) {
 			return (number1);
 		}
@@ -110,15 +110,15 @@ public class Calculate {
 		return (number/1000);
 	}
 	//returns a value to a positive integer power
-	public static double exponent(double value, int power) {
+	public static double exponent(double base, int power) {
 		if (power < 0) {
 			throw new IllegalArgumentException ("Sorry, this method does not accept negative powers. Please enter a positive power.");
 		}
-		double result = value; //result variable for final output
+		double product = base; //result variable for final output
 		for (int count = 0; count < power - 1; count++) { //value is used as a multiple
-			result = result * value;
+			product = product * base;
 		}
-		return (result);
+		return (product);
 	}
 	//returns the factorial of the value passed
 	public static int factorial(int number) {
@@ -148,15 +148,15 @@ public class Calculate {
 		if (number1 == 0 || number2 == 0) {
 			throw new IllegalArgumentException ("Sorry, there is no gcf for zero. Please enter a positive integer.");
 		}
-		int lownum = (Calculate.min(number1,number2));
+		int lownum = (int) (Calculate.min((double) number1, (double) number2));
 		int highnum = (int) (Calculate.max(number1,number2));
-		int gcfcanidate = lownum;
-		boolean factortest = (Calculate.isDivisibleBy(highnum,gcfcanidate));
-		while (factortest == false) {
-			gcfcanidate--;
-			factortest = (Calculate.isDivisibleBy(highnum, gcfcanidate) && (Calculate.isDivisibleBy(lownum, gcfcanidate)));
+		int factor = lownum;
+		boolean factorable = (Calculate.isDivisibleBy(highnum,factor));
+		while (factorable == false) {
+			factor--;
+			factorable = (Calculate.isDivisibleBy(highnum, factor) && (Calculate.isDivisibleBy(lownum, factor)));
 		}
-		return (gcfcanidate);
+		return (factor);
 	}
 	//Returns square root of values passed
 	public static double sqrt(double number) {
@@ -187,7 +187,7 @@ public class Calculate {
 			double root2 = ((-1 * b - (Calculate.sqrt(discriminant))) / (2 * a));
 			root1 = (Calculate.round2(root1));
 			root2 = (Calculate.round2(root2));
-			return (root1 + " and " + root2);
+			return (min(root1,root2) + " and " + max(root1,root2));
 		}
 	}
 }
@@ -217,12 +217,12 @@ else {
 		
 		//while loop to find gcf compatible factor of lownum and highnum
 		while (divisibility == false) {	
-			boolean factortest = false;	//factorTest for for loop condition
+			boolean factorable = false;	//factorable for for loop condition
 			
 			//Loop to find gcf factor of lownum
-			while (factortest == false) { 
+			while (factorable == false) { 
 				possiblegcf = possiblegcf - 1;					
-				factortest = (Calculate.isDivisibleBy(lownum,possiblegcf));
+				factorable = (Calculate.isDivisibleBy(lownum,possiblegcf));
 			}
 			divisibility = (Calculate.isDivisibleBy(highnum,possiblegcf)); 
 		}
