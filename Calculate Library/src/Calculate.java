@@ -70,9 +70,10 @@ public class Calculate {
 		else /*if (number1 < number2)*/ {
 			return (number2);					
 		}
+	}
+	
 		//else {
 			//return ("Numbers are equivalent.");}
-	}
 	//returns the greatest number of three passed numbers
 	public static double max(double number1, double number2, double number3) {
 		if (number1 >= number2 && number1 >= number3) {
